@@ -1,7 +1,7 @@
-import React from 'react';
 import { Post, Comment } from '../../types';
 import { UserInfo } from '../UserInfo/UserInfo';
 import './PostInfo.scss';
+import { CommentInfo } from '../CommentInfo/CommentInfo';
 
 interface Props {
   post: Post;
@@ -20,10 +20,7 @@ export const PostInfo: React.FC<Props> = ({ post }) => (
     {post.comments && post.comments.length > 0 ? (
       <div className="PostInfo__comments">
         {post.comments.map((comment: Comment) => (
-          <div key={comment.id} className="CommentInfo" data-cy="comment">
-            <div className="CommentInfo__name">{comment.name}</div>
-            <p className="CommentInfo__body">{comment.body}</p>
-          </div>
+          <CommentInfo key={comment.id} comment={comment} />
         ))}
       </div>
     ) : (
