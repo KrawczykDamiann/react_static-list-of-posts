@@ -1,5 +1,6 @@
 import React from 'react';
 import { Post, Comment } from '../../types';
+import { UserInfo } from '../UserInfo/UserInfo';
 import './PostInfo.scss';
 
 interface Props {
@@ -12,20 +13,7 @@ export const PostInfo: React.FC<Props> = ({ post }) => (
       <h3 className="PostInfo__title" data-cy="post-title">
         {post.title}
       </h3>
-      {post.user && (
-        <div className="UserInfo" data-cy="user-info">
-          <span className="UserInfo__name" data-cy="user-name">
-            {post.user.name}
-          </span>
-          <a
-            href={`mailto:${post.user.email}`}
-            className="UserInfo__email"
-            style={{ display: 'none' }}
-          >
-            {post.user.email}
-          </a>
-        </div>
-      )}
+      {post.user && <UserInfo user={post.user} />}
     </div>
     <p className="PostInfo__body">{post.body}</p>
 

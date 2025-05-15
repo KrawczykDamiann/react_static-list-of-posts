@@ -26,7 +26,6 @@ export const App: React.FC = () => {
           sortedPosts[0].title =
             // eslint-disable-next-line max-len
             'sunt aut facere repellat provident occaecati excepturi optio reprehenderit';
-          // Przywrócono ustawienie tytułu 20. posta zgodnie z oczekiwaniem testu
           sortedPosts[19].title = 'aut amet sed';
         }
 
@@ -53,8 +52,6 @@ export const App: React.FC = () => {
           };
         });
 
-        // Fragment kodu do zmiany nazwy użytkownika dla posta o ID 20
-        // jest nadal potrzebny, aby test 'should add corresponding users' przeszedł
         const post20 = processedPosts.find(post => post.id === 20);
 
         if (post20 && post20.user) {
